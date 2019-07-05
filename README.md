@@ -22,7 +22,7 @@ Component Tree:
         * Wine
         * WineList
         
-![Alt text](../src/assets/images/week1-react-project.jpg)
+![Alt text](/Users/macbookpro/Desktop/angel-vineyards-react/src/assets/images/week1-react-project.jpg)
 
 ## Technologies Used
 * Webpack
