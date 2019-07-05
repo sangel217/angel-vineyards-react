@@ -3,12 +3,12 @@ import NavBar from './NavBar';
 import Menu from './Menu';
 
 function App(){
-    return (
-        <div>
-            <NavBar/>
-            <Menu/>
-        </div>
-    );
+  return (
+    <div>
+      <NavBar/>
+      <Menu/>
+    </div>
+  );
 }
 
 export default App;
