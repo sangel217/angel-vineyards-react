@@ -22,7 +22,7 @@ Component Tree:
         * Wine
         * WineList
         
-(../src/assets/images/week1-react-project.jpg)
+![Alt text](../src/assets/images/week1-react-project.jpg)
 
 ## Technologies Used
 * Webpack
