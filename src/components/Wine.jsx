@@ -7,9 +7,9 @@ function Wine(props) {
       <ul>
         <li>
           <h4>{props.name}</h4>
-          <p>{props.type}</p>
-          <p>{props.ABV}%</p>
-          <p>${props.price}</p>
+          <p>Wine Varietal/Type: {props.type}</p>
+          <p>ABV: {props.ABV}%</p>
+          <p>Price per 4oz pour: ${props.price}</p>
           <p>Volume left by 4oz serving: {props.volume}</p>
         </li>
       </ul>
