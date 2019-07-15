@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import Menu from './Menu';
 import WineForm from './WineForm';
 import { Switch, Route } from 'react-router-dom';
-import { v4 } from "uuid";
+import { v4 } from 'uuid';
 
 class App extends React.Component{
 
@@ -28,8 +28,9 @@ class App extends React.Component{
       <div>
         <NavBar/>
         <Switch>
-          <Route exact path='/' render={()=><WineList wineList={this.state.masterWineList} />} />
-          <Route path='/newwine' component={WineForm} />
+          <Route exact path='/' render={()=><Menu wineList={this.state.masterWineList} />} />
+          <Route path='/newwine' render={()=><WineForm onNewWineCreation={this.handleAddingNewWineToList} />} />
+          <Route path='/admin' Component={Admin} />
         </Switch>
       </div>
     );
