@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 
 function WineForm(props){
   let _name = null;
@@ -11,12 +10,12 @@ function WineForm(props){
 
   function handleNewWineFormSubmission(event){
     event.preventDefault();
-    props.onNewWineCreation({name: _name.value, type: _type.value, ABV: _ABV.value, price: _price.value, volume: _volume.value, id: v4()});
+    props.onNewWineCreation({name: _name.value, type: _type.value, ABV: parseInt(_ABV.value), price: parseFloat(_price.value), volume: parseInt(_volume.value)});
     _name.value = '';
     _type.value = '';
-    _ABV.value = '';
-    _price.value = '';
-    _volume.value = '';
+    _ABV.value = 0;
+    _price.value = 0;
+    _volume.value = 0;
   }
 
   return (
@@ -43,13 +42,13 @@ function WineForm(props){
         <input
           type='number'
           id='price'
-          placeholder='Price per 4oz pour' step="0.01" min="0" max="50"
+          placeholder='Price per 4oz pour' step="0.01" min="0" max="420"
           ref={(input)=> {_price = input;}}/>
         <br/>
         <input
           type='number'
           id='volume'
-          placeholder='Full is 420 for 4oz per keg' step="0.01" min="0" max="50"
+          placeholder='Full is 420 for 4oz per keg' step="0.01" min="0" max="420"
           ref={(input)=> {_volume = input;}}/>
         <br/>
         <button type='submit'>Add New Wine</button>

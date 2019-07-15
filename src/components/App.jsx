@@ -11,17 +11,23 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      masterWineList: {}
+      masterWineList: {},
+      selectedWine: null
     };
     this.handleAddingNewWineToList = this.handleAddingNewWineToList.bind(this);
+    this.handleChangingSelectedWine = this.handleChangingSelectedWine.bind(this);
   }
 
   handleAddingNewWineToList(newWine){
-    newWineId = v4();
+    var newWineId = v4();
     var newWineList = Object.assign({}, this.state.masterWineList, {
       [newWineId]: newWine 
     });
     this.setState({masterWineList: newWineList});
+  }
+
+  handleChangingSelectedWine(wineId){
+    this.setState({selectedWine: wineId});
   }
 
   render(){
@@ -31,7 +37,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/' render={()=><Menu wineList={this.state.masterWineList} />} />
           <Route path='/newwine' render={()=><WineForm onNewWineCreation={this.handleAddingNewWineToList} />} />
-          <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} />} />
+          <Route path='/admin' render={(props)=><Admin wineList={this.state.masterWineList} currentRouterPath={props.location.pathname} onWineSelection={this.handleChangingSelectedWine} selectedWine={this.state.selectedWine} />} />
         </Switch>
       </div>
     );

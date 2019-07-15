@@ -13,7 +13,7 @@ function Menu(props){
 }
 
 Menu.propTypes = {
-  wineList: PropTypes.array
+  wineList: PropTypes.object
 };
 
 export default Menu;

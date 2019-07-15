@@ -8,15 +8,15 @@ function Wine(props) {
         <li>
           <h4>{props.name}</h4>
           <p>Wine Varietal/Type: {props.type}</p>
-          <p>ABV: {props.ABV}%</p>
+          {/* <p>ABV: {props.ABV}%</p>
           <p>Price per 4oz pour: ${props.price}</p>
-          <p>Volume left by 4oz serving: {props.volume}</p>
+          <p>Volume left by 4oz serving: {props.volume}</p> */}
         </li>
       </ul>
     </div>;
   if(props.currentRouterPath === '/admin'){
     return (
-      <div onClick={() => {alert('You clikced on ' + props.name);}}>
+      <div onClick={() => {props.onWineSelection(props.wineId);}}>
         {wineInformation}
       </div>
     );
@@ -35,7 +35,9 @@ Wine.propTypes = {
   ABV: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
   volume: PropTypes.number.isRequired,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onWineSelection: PropTypes.func,
+  wineId: PropTypes.string.isRequired
 };
 
 export default Wine;

@@ -37,22 +37,26 @@ function WineList(props){
   return (
     <div>
       <hr/>
-      {props.wineList.map((wine) =>
-        <Wine name={wine.name}
+      {Object.keys(props.wineList).map(function(wineId){
+        var wine = props.wineList[wineId];
+        return <Wine name={wine.name}
           type={wine.type}
           ABV={wine.ABV}
           price={wine.price}
           volume={wine.volume}
           currentRouterPath={props.currentRouterPath}
-          key={wine.id} />
-      )}
+          key={wineId}
+          onWineSelection={props.onWineSelection}
+          wineId={wineId} />;
+      })}
     </div>
   );
 }
 
 WineList.propTypes = {
-  wineList: PropTypes.array,
-  currentRouterPath: PropTypes.string
+  wineList: PropTypes.object,
+  currentRouterPath: PropTypes.string,
+  onWineSelection: PropTypes.func
 };
 
 export default WineList;
