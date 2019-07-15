@@ -7,7 +7,7 @@ function Menu(props){
     <div>
       <h2>Available Wines on Tap!</h2>
       {/* {props.ticketList} */}
-      <WineList render={()=><WineList wineList={props.wineList} />}/>
+      <WineList wineList={props.wineList} />
     </div>
   );
 }

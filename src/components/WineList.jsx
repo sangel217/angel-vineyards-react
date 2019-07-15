@@ -43,6 +43,7 @@ function WineList(props){
           ABV={wine.ABV}
           price={wine.price}
           volume={wine.volume}
+          currentRouterPath={props.currentRouterPath}
           key={wine.id} />
       )}
     </div>
@@ -50,7 +51,8 @@ function WineList(props){
 }
 
 WineList.propTypes = {
-  wineList: PropTypes.array
+  wineList: PropTypes.array,
+  currentRouterPath: PropTypes.string
 };
 
 export default WineList;

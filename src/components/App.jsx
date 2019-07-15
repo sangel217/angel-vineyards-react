@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import Menu from './Menu';
+import Admin from './Admin';
 import WineForm from './WineForm';
 import { Switch, Route } from 'react-router-dom';
 import { v4 } from 'uuid';
@@ -30,7 +31,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/' render={()=><Menu wineList={this.state.masterWineList} />} />
           <Route path='/newwine' render={()=><WineForm onNewWineCreation={this.handleAddingNewWineToList} />} />
-          <Route path='/admin' Component={Admin} />
+          <Route path='/admin' render={(props)=><Admin ticketList={this.state.masterTicketList} currentRouterPath={props.location.pathname} />} />
         </Switch>
       </div>
     );
